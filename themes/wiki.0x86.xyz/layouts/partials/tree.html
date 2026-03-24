@@ -1,0 +1,35 @@
+{{/* Recursively render a section and its pages/sub-sections */}}
+
+<ul>
+
+{{ range .Sections }}
+    <li>
+        {{.Title}}
+        {{ partial "tree.html" . }}
+    </li>    
+{{ end }}
+
+ {{ range .RegularPages }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </li>
+  {{ end }}
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
