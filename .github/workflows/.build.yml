@@ -3,7 +3,7 @@ name: Hugo GH Page
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, build/gh-page ]
   pull_request:
     branches: [ main ]
 
