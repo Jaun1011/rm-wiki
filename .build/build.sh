@@ -36,16 +36,17 @@ function git_push(){
 }
 
 function run_build(){
-    echo $CNAME_URL >> public/CNAME
+    echo "$CNAME_URL" >> public/CNAME
+    
     hugo --minify  
 }
 
 
 echo "buildscript is running"
 
-git_setup()
-run_build()
-git_push()
+git_setup
+run_build
+git_push
 
 
 
