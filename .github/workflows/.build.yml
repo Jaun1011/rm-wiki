@@ -26,6 +26,6 @@ jobs:
 
       - name: Build
         run: | 
-          sh .build/build.sh
+          bash .build/build.sh
 
         
