@@ -17,7 +17,7 @@ BUILD_EMAIL="build@0x86.xyz"
 BUILD_USER="build"
 BUILD_MESSAGE="build by github action"
 
-GIT_TARGET_BRANCH="build/gh-page"
+GIT_BRANCH_TARGET="build/gh-page"
 
 CNAME_URL="wiki.dnd.0x86.xyz"
 
@@ -26,18 +26,23 @@ function git_setup(){
     git config --global user.email $BUILD_EMAIL
     git config --global user.name  $BUILD_USER
     git pull   --all
-}
 
+    git checkout -f $GIT_BRANCH_TARGET
+    git branch
+    echo "git checked out $GIT_BRANCH_TARGET"
+
+}
 
 function git_push(){
     git add .
     git commit -m $BUILD_MESSAGE --allow-empty
     git push
+
+    echo "git pushed to $GIT_BRANCH_TARGET"
 }
 
 function run_build(){
     echo "$CNAME_URL" >> public/CNAME
-    
     hugo --minify  
 }
 
