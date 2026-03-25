@@ -38,7 +38,7 @@ function git_checkout(){
 
 function git_push(){
     git add .
-    git commit -m $BUILD_MESSAGE --allow-empty
+    git commit -m "$BUILD_MESSAGE" --allow-empty
     git push
 
     echo "git pushed to $GIT_BRANCH_TARGET"
