@@ -53,6 +53,9 @@ function run_build(){
     echo "[INFO] run build"
     hugo --minify  
 
+    # must be after build otherwise files wont get overwritten
+    git_checkout
+
     echo "$CNAME_URL" > public/CNAME
         
     mkdir tmp
@@ -70,7 +73,6 @@ function main(){
 
     git_setup
     run_build
-    git_checkout
     git_push
 }
 
