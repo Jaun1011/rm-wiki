@@ -35,7 +35,7 @@ function git_setup(){
 function git_checkout(){
     
     git fetch  --all
-    git checkout $GIT_BRANCH_TARGET 
+    git checkout -f $GIT_BRANCH_TARGET 
  
     echo "[INFO] git branch checkout made:"
     git branch
@@ -43,7 +43,7 @@ function git_checkout(){
 
 function git_push(){
     
-    git checkout $GIT_BRANCH_TARGET
+    git checkout -f $GIT_BRANCH_TARGET
 
     git add .
     git commit -m "$BUILD_MESSAGE" --allow-empty
