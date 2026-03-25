@@ -32,6 +32,7 @@ function git_setup(){
 
 function git_checkout(){
     git checkout -f $GIT_BRANCH_TARGET
+    git pull
     git branch
     echo "git checked out $GIT_BRANCH_TARGET"
 }
