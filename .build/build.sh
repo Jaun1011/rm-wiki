@@ -51,6 +51,7 @@ function git_push(){
 }
 
 function run_build(){
+    echo "[INFO] run build"
     hugo --minify  
 
     echo "$CNAME_URL" > public/CNAME
