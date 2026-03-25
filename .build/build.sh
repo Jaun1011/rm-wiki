@@ -17,8 +17,7 @@
 
 BUILD_EMAIL="build@0x86.xyz"
 BUILD_USER="build"
-BUILD_MESSAGE="build by github action"
-
+BUILD_MESSAGE="$(git rev-parse HEAD) build by github action"
 GIT_BRANCH_TARGET="build/gh-page"
 
 CNAME_URL="wiki.0x86.xyz"
@@ -75,4 +74,7 @@ function main(){
     git_push
 }
 
-main
+
+echo $id
+
+# main
