@@ -17,7 +17,7 @@ BUILD_EMAIL="build@0x86.xyz"
 BUILD_USER="build"
 BUILD_MESSAGE="build by github action"
 
-GIT_BRANCH_TARGET="origin/build/gh-page"
+GIT_BRANCH_TARGET="build/gh-page"
 
 CNAME_URL="wiki.dnd.0x86.xyz"
 
@@ -63,9 +63,3 @@ git_setup
 git_checkout
 run_build
 git_push
-
-
-
-
-
-
