@@ -47,9 +47,11 @@ function run_build(){
     hugo --minify  
 
     echo "$CNAME_URL" >> public/CNAME
-
-    rm -r $( printf '%s\n' * | grep -Ewv ".git|tmp" )
         
+    mkdir tmp
+
+    mv public/* tmp
+    rm -r $( printf '%s\n' * | grep -Ewv ".git|tmp" )
     mv tmp/* ./
     rm -r tmp
 }
