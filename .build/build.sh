@@ -66,7 +66,7 @@ function run_build(){
 
 function main(){
 
-    echo "[INFO] buildscript is running"
+    echo "[INFO] buildscript is running $COMMIT_ID"
 
     git_setup
     run_build
@@ -74,7 +74,4 @@ function main(){
     git_push
 }
 
-
-echo $id
-
-# main
+main
