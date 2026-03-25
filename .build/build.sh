@@ -46,7 +46,11 @@ function git_checkout(){
 }
 
 function git_push(){
+    
+    git checkout $GIT_BRANCH_TARGE
+    echo "git branches:"
     git branch
+
     git add .
     #git commit -m "$BUILD_MESSAGE" --allow-empty
     #git push 
