@@ -31,15 +31,14 @@ function git_setup(){
 
 
 function git_checkout(){
-    git checkout -f $GIT_BRANCH_TARGET
-    git branch
+    git checkout -b $GIT_BRANCH_TARGET
     echo "git checked out $GIT_BRANCH_TARGET"
 }
 
 function git_push(){
     git add .
     git commit -m "$BUILD_MESSAGE" --allow-empty
-    git push
+    git push --set-upstream origin $GIT_BRANCH_TARGET
 
     echo "git pushed to $GIT_BRANCH_TARGET"
 }
@@ -55,7 +54,6 @@ function run_build(){
     rm -r $( printf '%s\n' * | grep -Ewv ".git|tmp" )
     mv tmp/* ./
     rm -r tmp
-    ls -la
 }
 
 
