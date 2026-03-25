@@ -17,7 +17,7 @@ BUILD_EMAIL="build@0x86.xyz"
 BUILD_USER="build"
 BUILD_MESSAGE="build by github action"
 
-GIT_BRANCH_TARGET="build/gh-page"
+GIT_BRANCH_TARGET="origin/build/gh-page"
 
 CNAME_URL="wiki.dnd.0x86.xyz"
 
@@ -25,6 +25,7 @@ CNAME_URL="wiki.dnd.0x86.xyz"
 function git_setup(){
     git config --global user.email $BUILD_EMAIL
     git config --global user.name  $BUILD_USER
+    git fetch  --all
     git pull   --all
 }
 
@@ -54,6 +55,7 @@ function run_build(){
     rm -r $( printf '%s\n' * | grep -Ewv ".git|tmp" )
     mv tmp/* ./
     rm -r tmp
+    ls -la
 }
 
 
