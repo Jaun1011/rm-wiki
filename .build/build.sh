@@ -1,6 +1,6 @@
 #!/bin/bash
 #################################################################################
-# author:      jaun1011
+# author:      jan@jku.one
 # date:        24.3.2026
 #
 # precodition: branch must be existing

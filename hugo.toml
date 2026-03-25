@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://wiki.0x86.xyz/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'D&D Wiki'
 theme = 'wiki.0x86.xyz'
