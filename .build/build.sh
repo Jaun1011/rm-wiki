@@ -26,11 +26,13 @@ function git_setup(){
     git config --global user.email $BUILD_EMAIL
     git config --global user.name  $BUILD_USER
     git pull   --all
+}
 
+
+function git_checkout(){
     git checkout -f $GIT_BRANCH_TARGET
     git branch
     echo "git checked out $GIT_BRANCH_TARGET"
-
 }
 
 function git_push(){
@@ -42,14 +44,21 @@ function git_push(){
 }
 
 function run_build(){
-    echo "$CNAME_URL" >> public/CNAME
     hugo --minify  
+
+    echo "$CNAME_URL" >> public/CNAME
+
+    rm -r $( printf '%s\n' * | grep -Ewv ".git|tmp" )
+        
+    mv tmp/* ./
+    rm -r tmp
 }
 
 
 echo "buildscript is running"
 
 git_setup
+git_checkout
 run_build
 git_push
 
