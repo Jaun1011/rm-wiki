@@ -2,11 +2,15 @@
 
 Das statische wiki soll als Template für ein Wikipedia für dnd dienen.
 
+## Envs
+
+- [local](http://localhost:1313)
+- [prod](https://wiki.0x86.xyz)
+
 ## Techstack
 
 - [hugo](https://gohugo.io/)
 - [pagefind](https://github.com/Pagefind/pagefind)
-
 
 ## Commands
 
@@ -18,3 +22,8 @@ Hugo starten
 hugo serve
 ```
 
+neuer Eintrag erstellen:
+
+```bash
+hugo new content test.md 
+```
