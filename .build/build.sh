@@ -14,10 +14,10 @@
 #   5) pushes the files to a git build branch  
 #
 #################################################################################
-
+COMMIT_ID=$(git rev-parse HEAD)
 BUILD_EMAIL="build@0x86.xyz"
 BUILD_USER="build"
-BUILD_MESSAGE="$(git rev-parse HEAD) build by github action"
+BUILD_MESSAGE="$COMMIT_ID build by github action"
 GIT_BRANCH_TARGET="build/gh-page"
 
 CNAME_URL="wiki.0x86.xyz"
