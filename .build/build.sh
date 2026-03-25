@@ -25,15 +25,14 @@ CNAME_URL="wiki.0x86.xyz"
 function git_setup(){
     git config --global user.email $BUILD_EMAIL
     git config --global user.name  $BUILD_USER
-    git fetch  --all
-    git pull   --all
 }
-
 
 function git_checkout(){
     
+    git fetch  --all
+}
 
-    git checkout $GIT_BRANCH_TARGE
+    git checkout -d $GIT_BRANCH_TARGE
     git ls-remote --exit-code --heads origin $GIT_BRANCH_TARGET >/dev/null 2>&1
     EXIT_CODE=$?
     if [[ $EXIT_CODE == '2' ]]; then
@@ -55,7 +54,7 @@ function git_push(){
     #git commit -m "$BUILD_MESSAGE" --allow-empty
     #git push 
 
-    echo "git pushed to $GIT_BRANCH_TARGET"
+    #echo "git pushed to $GIT_BRANCH_TARGET"
 }
 
 function run_build(){
