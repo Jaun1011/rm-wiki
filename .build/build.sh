@@ -2,9 +2,11 @@
 #################################################################################
 # author:      jaun1011
 # date:        24.3.2026
-# description:
 #
-# the script does the following steps:
+# precodition: branch must be existing
+#
+# description:
+#   the script does the following steps:
 #   1) builds with hugo an artifact
 #   2) copies it to tmp
 #   3) moves tmp to the root folder
@@ -23,32 +25,31 @@ CNAME_URL="wiki.0x86.xyz"
 
 
 function git_setup(){
+    
     git config --global user.email $BUILD_EMAIL
     git config --global user.name  $BUILD_USER
+
+    echo "[INFO] git config setup"
 }
 
 function git_checkout(){
     
     git fetch  --all
-
     git checkout $GIT_BRANCH_TARGET 
-
+ 
+    echo "[INFO] git branch checkout made:"
     git branch
-
-    echo "git checked out $GIT_BRANCH_TARGET"
 }
 
 function git_push(){
     
     git checkout $GIT_BRANCH_TARGET
-    echo "git branches:"
-    git branch
 
     git add .
-    #git commit -m "$BUILD_MESSAGE" --allow-empty
-    #git push 
+    git commit -m "$BUILD_MESSAGE" --allow-empty
+    git push 
 
-    #echo "git pushed to $GIT_BRANCH_TARGET"
+    echo "[INFO] git pushed to $GIT_BRANCH_TARGET"
 }
 
 function run_build(){
@@ -65,11 +66,14 @@ function run_build(){
 }
 
 
-echo "buildscript is running"
+function main(){
 
+    echo "[INFO] buildscript is running"
 
+    git_setup
+    run_build
+    git_checkout
+    git_push
+}
 
-git_setup
-git_checkout
-run_build
-git_push
+main
