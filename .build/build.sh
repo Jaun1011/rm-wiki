@@ -19,7 +19,7 @@ BUILD_MESSAGE="build by github action"
 
 GIT_BRANCH_TARGET="build/gh-page"
 
-CNAME_URL="wiki.dnd.0x86.xyz"
+CNAME_URL="wiki.0x86.xyz"
 
 
 function git_setup(){
