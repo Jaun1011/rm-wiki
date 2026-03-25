@@ -13,7 +13,7 @@ jobs:
 
     
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0  
@@ -24,7 +24,7 @@ jobs:
           hugo-version: '0.119.0'
 
 
-      - name: Build
+      - name: build/gh-page
         run: | 
           bash .build/build.sh
 
