@@ -31,14 +31,27 @@ function git_setup(){
 
 
 function git_checkout(){
-    git checkout -b $GIT_BRANCH_TARGET
+    
+
+    git ls-remote --exit-code --heads origin $GIT_BRANCH_TARGET >/dev/null 2>&1
+    EXIT_CODE=$?
+
+    
+    git checkout -b $GIT_BRANCH_TARGE
+    if [[ $EXIT_CODE == '2' ]]; then
+        git push --set-upstream origin $GIT_BRANCH_TARGET
+        echo "git branch $GIT_BRANCH_TARGET created"
+    fi
+
+
+
     echo "git checked out $GIT_BRANCH_TARGET"
 }
 
 function git_push(){
     git add .
     git commit -m "$BUILD_MESSAGE" --allow-empty
-    git push --set-upstream origin $GIT_BRANCH_TARGET
+    git push 
 
     echo "git pushed to $GIT_BRANCH_TARGET"
 }
@@ -59,7 +72,9 @@ function run_build(){
 
 echo "buildscript is running"
 
-git_setup
-git_checkout
-run_build
-git_push
+
+
+#git_setup
+#git_checkout
+#run_build
+#git_push
