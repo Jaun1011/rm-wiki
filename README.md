@@ -27,3 +27,10 @@ neuer Eintrag erstellen:
 ```bash
 hugo new content test.md 
 ```
+
+Indexe builden mit pagefind
+
+
+```bash
+./.build/pagefind --site public/
+```
