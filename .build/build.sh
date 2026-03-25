@@ -55,7 +55,7 @@ function git_push(){
 function run_build(){
     hugo --minify  
 
-    echo "$CNAME_URL" >> public/CNAME
+    echo "$CNAME_URL" > public/CNAME
         
     mkdir tmp
 
