@@ -45,7 +45,7 @@ function git_push(){
 
     git add .
     git commit -m "$BUILD_MESSAGE" --allow-empty
-    #git push 
+    git push 
 
     echo "[INFO] git pushed to $GIT_BRANCH_TARGET"
 }
