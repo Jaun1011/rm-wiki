@@ -29,18 +29,18 @@ function git_setup(){
 
 function git_checkout(){
     
-    git fetch --all
+    git fetch  --all
 
-    git checkout $GIT_BRANCH_TARGE
+    git checkout $GIT_BRANCH_TARGET 
 
     git branch
+
+    echo "git checked out $GIT_BRANCH_TARGET"
 }
-
-
 
 function git_push(){
     
-    git checkout $GIT_BRANCH_TARGE
+    git checkout $GIT_BRANCH_TARGET
     echo "git branches:"
     git branch
 
