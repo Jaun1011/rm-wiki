@@ -33,11 +33,11 @@ function git_setup(){
 function git_checkout(){
     
 
+    git checkout $GIT_BRANCH_TARGE
     git ls-remote --exit-code --heads origin $GIT_BRANCH_TARGET >/dev/null 2>&1
     EXIT_CODE=$?
 
     
-    git checkout -b $GIT_BRANCH_TARGE
     if [[ $EXIT_CODE == '2' ]]; then
         git push --set-upstream origin $GIT_BRANCH_TARGET
         echo "git branch $GIT_BRANCH_TARGET created"
@@ -74,7 +74,7 @@ echo "buildscript is running"
 
 
 
-#git_setup
-#git_checkout
+git_setup
+git_checkout
 #run_build
 #git_push
