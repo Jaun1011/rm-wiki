@@ -29,7 +29,7 @@ function git_setup(){
     git config --global user.email $BUILD_EMAIL
     git config --global user.name  $BUILD_USER
 
-    echo "[INFO] git config setup"
+    echo "[INFO] git config setup finished"
 }
 
 function git_checkout(){
@@ -42,8 +42,6 @@ function git_checkout(){
 }
 
 function git_push(){
-    
-    git checkout -f $GIT_BRANCH_TARGET
 
     git add .
     git commit -m "$BUILD_MESSAGE" --allow-empty
