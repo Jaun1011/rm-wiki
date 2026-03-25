@@ -29,20 +29,14 @@ function git_setup(){
 
 function git_checkout(){
     
-    git fetch  --all
+    git fetch --all
+
+    git checkout $GIT_BRANCH_TARGE
+
+    git branch
 }
 
-    git checkout -d $GIT_BRANCH_TARGE
-    git ls-remote --exit-code --heads origin $GIT_BRANCH_TARGET >/dev/null 2>&1
-    EXIT_CODE=$?
-    if [[ $EXIT_CODE == '2' ]]; then
-        git push --set-upstream origin $GIT_BRANCH_TARGET
-        echo "git branch $GIT_BRANCH_TARGET created"
-    fi
 
-
-    echo "git checked out $GIT_BRANCH_TARGET"
-}
 
 function git_push(){
     
