@@ -9,7 +9,7 @@ FILE=pagefind-$VERSION-aarch64-unknown-linux-musl.tar.gz
 URL=$MIRROR/$VERSION/$FILE
 
 function pagefinder_download(){
-    echo "[INFO] pagefinder download $URL"
+    echo "[INFO] pagefind download $URL"
 
     wget $URL
 
@@ -19,13 +19,16 @@ function pagefinder_download(){
 
 
 function pagefinder_index(){
-    echo "[INFO] pagefinder create index"
+    echo "[INFO] pagefind create index"
     ./pagefind --site public
 }
 
 
 function main(){
+    
+    echo "[INFO] pagefind start"
     pagefinder_download
+
     pagefinder_index
 }
 

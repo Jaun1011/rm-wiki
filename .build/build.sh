@@ -74,6 +74,7 @@ function main(){
 
     git_setup
     run_build
+    bash .build/pagefind.sh
     git_push
 }
 
