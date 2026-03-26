@@ -79,8 +79,11 @@ function git_push(){
 
 function run_build(){
     echo "[INFO] run build"
+    echo "[INFO] run hugo build"
     hugo --minify  
-    pagefinder_index
+
+    echo "[INFO] run pagefind index"
+    npx pagefind --site ./public
 
     # must be after build otherwise files wont get overwritten
     git_checkout
@@ -101,7 +104,6 @@ function main(){
     echo "[INFO] buildscript is running $COMMIT_ID"
 
     git_setup
-    pagefinder_download
     
     run_build
     

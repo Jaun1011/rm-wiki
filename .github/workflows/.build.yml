@@ -22,8 +22,15 @@ jobs:
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: '0.119.0'
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
 
-
+      - name: Install Pagefind
+        run: npm install pagefind 
+      
       - name: build/gh-page
         run: | 
           bash .build/build.sh
