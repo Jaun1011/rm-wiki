@@ -20,8 +20,13 @@ function pagefinder_download(){
 
 function pagefinder_index(){
     echo "[INFO] pagefinder create index"
-    ./pagefinder --site public
+    ./pagefind --site public
 }
 
-pagefinder_download
-pagefinder_index
+
+function main(){
+    pagefinder_download
+    pagefinder_index
+}
+
+main
