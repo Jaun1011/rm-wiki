@@ -24,6 +24,33 @@ GIT_BRANCH_TARGET="build/gh-page"
 
 CNAME_URL="wiki.0x86.xyz"
 
+
+
+MIRROR=https://github.com/Pagefind/pagefind/releases/download
+
+PAGEFINDER_VERSION=v1.4.0
+
+PAGEFINDER_FILE=pagefind-$PAGEFINDER_VERSION-aarch64-unknown-linux-musl.tar.gz
+
+URL=$MIRROR/$PAGEFINDER_VERSION/$PAGEFINDER_FILE
+
+function pagefinder_download(){
+    echo "[INFO] pagefind download $URL"
+
+    wget $URL
+
+    tar -xzf $PAGEFINDER_FILE
+    rm $PAGEFINDER_FILE
+}
+
+
+function pagefinder_index(){
+    echo "[INFO] pagefind create index"
+    ./pagefind --site public
+}
+
+
+
 function git_setup(){
     
     git config --global user.email $BUILD_EMAIL
@@ -53,6 +80,7 @@ function git_push(){
 function run_build(){
     echo "[INFO] run build"
     hugo --minify  
+    pagefinder_index
 
     # must be after build otherwise files wont get overwritten
     git_checkout
@@ -73,8 +101,10 @@ function main(){
     echo "[INFO] buildscript is running $COMMIT_ID"
 
     git_setup
+    pagefinder_download
+    
     run_build
-    bash .build/pagefind.sh
+    
     git_push
 }
 
