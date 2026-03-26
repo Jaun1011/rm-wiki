@@ -1,9 +1,24 @@
 
 <html>
 
+    <head>
+        <script src="/pagefind/pagefind-ui.js"></script>
+        
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    </head>
+
     <body>
-        <label>search:</label>
-        <input>
+        <div id="search"></div>
+
+
         {{ partial "tree.html" .Site.Home }}
+        
+
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({ element: "#search", showSubResults: true });
+            });
+        </script>
+
     </body>
 </html>
