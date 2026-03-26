@@ -34,3 +34,7 @@ Indexe builden mit pagefind
 ```bash
 ./.build/pagefind --site public/
 ```
+
+# Weitere Ideen
+
+- Post Processor um Links automatisch einzufügen (Titel und Wörter mit ähnlihchkeit)
